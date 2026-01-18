@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>अधिराज Story</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Splash Screen -->
+  <div id="splash">
+    <h1>Aadhiraj Story</h1>
+    <div class="loader">
+      <span class="bar"></span>
+    </div>
+  </div>
+
+  <!-- App Wrapper -->
+  <div id="app" class="hidden">
+
+    <!-- Top Navigation -->
+    <header class="top-nav">
+      <div class="logo-title">
+        <img src="logo.png" alt="Logo" />
+        <span>अधिराज Story</span>
+      </div>
+      <button id="installBtn">Install App</button>
+    </header>
+
+    <!-- Language Tabs -->
+    <nav class="tabs">
+      <div class="tab active" data-lang="hi">हिन्दी कथाहरु</div>
+      <div class="tab" data-lang="ne">नेपाली कथाहरु</div>
+      <div class="underline"></div>
+    </nav>
+
+    <!-- Story List -->
+    <main id="storyList">
+      <!-- Titles will load from stories.js -->
+    </main>
+
+  </div>
+
+  <!-- JS -->
+  <script src="stories.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
