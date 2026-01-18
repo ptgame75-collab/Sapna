@@ -1,0 +1,43 @@
+*{ margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', sans-serif; }
+
+body{ background:#f6f3ee; color:#111; }
+
+.hidden{display:none;}
+
+/* Splash Screen */ #splash{ position:fixed; inset:0; background:#000; color:#fff; display:flex; flex-direction:column; justify-content:center; align-items:center; z-index:9999; }
+
+#splash h1{ font-size:28px; animation: zoomText 2.5s ease forwards; }
+
+@keyframes zoomText{ from{transform:scale(1);} to{transform:scale(1.4);} }
+
+.loader{ width:120px; height:4px; background:#333; margin-top:20px; overflow:hidden; }
+
+.loader .bar{ height:100%; width:0; background:#1e90ff; animation: loadBar 2.5s linear forwards; }
+
+@keyframes loadBar{ to{width:100%;} }
+
+/* Top Navigation */ .top-nav{ background:#fff; display:flex; justify-content:space-between; align-items:center; padding:12px 16px; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+
+.logo-title{ display:flex; align-items:center; gap:8px; }
+
+.logo-title img{ width:28px; height:28px; }
+
+#installBtn{ background:#111; color:#fff; border:none; padding:6px 14px; border-radius:20px; }
+
+/* Tabs */ .tabs{ position:relative; display:flex; background:#fff; }
+
+.tab{ width:50%; text-align:center; padding:14px 0; font-weight:600; }
+
+.underline{ position:absolute; bottom:0; left:0; width:50%; height:3px; background:#111; transition:0.3s; }
+
+/* Story List */ #storyList{ padding:16px; }
+
+.story-card{ background:#fff; border-radius:16px; padding:18px; margin-bottom:14px; font-size:18px; box-shadow:0 2px 6px rgba(0,0,0,0.1); position:relative; }
+
+.story-card::before{ content:""; position:absolute; left:0; top:0; width:6px; height:100%; background:#111; border-radius:16px 0 0 16px; }
+
+/* Night Mode */ body.night{ background:#111; color:#eee; }
+
+body.night .top-nav, body.night .tabs, body.night .story-card{ background:#1b1b1b; color:#eee; }
+
+body.night .underline{ background:#1e90ff; }
