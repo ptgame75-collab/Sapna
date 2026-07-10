@@ -62,8 +62,6 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-image: url('pixelated-bg.png'); 
-    background-size: cover;
 }
 
 .game-mode {
