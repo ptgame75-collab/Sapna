@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loading Ludo Game...</title>
+    <title>Ludo Game</title>
     
     <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0b194d">
     
     <meta http-equiv="refresh" content="0; url=home.html">
     
     <script>
-        // १. पुरानाे रिडाइरेक्ट लजिक
+        // ब्याकअप रिडाइरेक्ट लजिक
         window.location.href = "home.html";
 
-        // २. Service Worker लाई रजिस्टर गर्ने कोड (इन्स्टल गराउनका लागि)
+        // Service Worker रजिस्टर गर्ने (इन्स्टल गराउनका लागि)
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js')
@@ -23,8 +24,8 @@
         }
     </script>
 </head>
-<body>
-    <div style="text-align: center; margin-top: 50px; font-family: Arial, sans-serif; color: white;">
+<body style="background-color: #0c1a40; display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <div style="text-align: center; font-family: Arial, sans-serif; color: white;">
         <p>Loading Game...</p>
     </div>
 </body>
