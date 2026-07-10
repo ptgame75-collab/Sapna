@@ -5,11 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loading Ludo Game...</title>
     
+    <link rel="manifest" href="manifest.json">
+    
     <meta http-equiv="refresh" content="0; url=home.html">
     
     <script>
-        // २. यदि कुनै ब्राउजरमा माथिको कोडले काम गरेन भने यसले पक्का रिडाइरेक्ट गरिदिन्छ
+        // १. पुरानाे रिडाइरेक्ट लजिक
         window.location.href = "home.html";
+
+        // २. Service Worker लाई रजिस्टर गर्ने कोड (इन्स्टल गराउनका लागि)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                .then(reg => console.log('Service Worker Registered!'))
+                .catch(err => console.log('Service Worker Failed!', err));
+            });
+        }
     </script>
 </head>
 <body>
@@ -18,4 +29,3 @@
     </div>
 </body>
 </html>
-
