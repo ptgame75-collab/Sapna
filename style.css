@@ -1,9 +1,8 @@
-/* ==================== साझा बेस स्टाइल (Common Style) ==================== */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #0b194d; /* Dark blue background */
+    background-color: #0b194d;
     color: white;
     display: flex;
     justify-content: center;
@@ -12,7 +11,7 @@ body {
 }
 
 .main-container {
-    width: 375px; /* Standard phone width */
+    width: 375px; 
     height: 812px;
     background-color: #0c1a40;
     display: flex;
@@ -35,7 +34,6 @@ body {
     font-weight: bold;
 }
 
-/* ==================== होमपेजको स्टाइल (Home Screen Style) ==================== */
 .title-bar {
     background-color: white;
     color: black;
@@ -97,88 +95,4 @@ body {
 
 .btn:hover {
     background-color: #f0f0f0;
-}
-
-/* ==================== लुडो बोर्डको स्टाइल (Ludo Board Style) ==================== */
-.ludo-top-bar {
-    padding: 15px 20px; /* लुडो स्क्रिनको लागि हल्का स्पेस मिलाएको */
-}
-
-.back-btn {
-    text-decoration: none;
-    color: black;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.board-container {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-}
-
-.ludo-board {
-    display: grid;
-    grid-template-columns: repeat(15, 1fr);
-    grid-template-rows: repeat(15, 1fr);
-    width: 350px;
-    height: 350px;
-    background-color: #fff;
-    border: 2px solid #333;
-}
-
-.house {
-    grid-column: span 6;
-    grid-row: span 6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-}
-
-.red-house { background-color: #ff4d4d; }
-.yellow-house { background-color: #ffde22; }
-.blue-house { background-color: #2e64ff; }
-.green-house { background-color: #2ecc71; }
-
-.box {
-    width: 70%;
-    height: 70%;
-    background-color: white;
-    border-radius: 5px;
-}
-
-.top-track, .bottom-track {
-    grid-column: span 3;
-    grid-row: span 6;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-}
-
-.left-track, .right-track {
-    grid-column: span 6;
-    grid-row: span 3;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-}
-
-.cell {
-    border: 1px solid #ddd;
-    box-sizing: border-box;
-}
-
-.red-path { background-color: #ff4d4d; }
-.yellow-path { background-color: #ffde22; }
-.blue-path { background-color: #2e64ff; }
-.green-path { background-color: #2ecc71; }
-
-.center-home {
-    grid-column: span 3;
-    grid-row: span 3;
-    background-color: #ddd;
-    border: 1px solid #333;
 }
