@@ -91,3 +91,8 @@ box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 .btn:hover {
 background-color: #f0f0f0;
 }
+/* पुराना सबै कोडहरू जस्ताको त्यस्तै राख्नुहोला, थप यो मात्र तल जोड्नुस्: */
+.btn-link {
+    text-decoration: none; /* लिङ्कको अन्डरलाइन हटाउन */
+    display: block;
+}
