@@ -1,3 +1,4 @@
+/* ludo.css */
 body {
     margin: 0;
     padding: 0;
@@ -7,6 +8,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
 }
 
 .main-container {
@@ -19,7 +21,7 @@ body {
     border: 3px solid #222;
     border-radius: 40px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
 
 .top-bar {
@@ -30,12 +32,13 @@ body {
     background: white;
     color: black;
     font-weight: bold;
+    flex-shrink: 0;
 }
 
 .back-btn {
     text-decoration: none;
     color: black;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
 }
 
@@ -45,6 +48,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 10px;
+    background: #0c1a40;
 }
 
 .ludo-board {
@@ -54,124 +58,81 @@ body {
     width: 360px;
     height: 360px;
     background-color: #fff;
-    border: 2px solid #000;
+    border: 3px solid #000;
+    gap: 1px;
 }
 
+/* Houses */
 .house {
-    grid-column: span 6;
-    grid-row: span 6;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 15px;
+    padding: 8px;
     box-sizing: border-box;
 }
 
-.red-house { background-color: #f6251b; }
-.blue-house { background-color: #008eff; }
-.green-house { background-color: #00be00; }
-.yellow-house { background-color: #ffb300; }
+.red-house   { background-color: #f6251b; grid-column: 1 / span 6; grid-row: 1 / span 6; }
+.blue-house  { background-color: #008eff; grid-column: 10 / span 6; grid-row: 1 / span 6; }
+.green-house { background-color: #00be00; grid-column: 1 / span 6; grid-row: 10 / span 6; }
+.yellow-house{ background-color: #ffb300; grid-column: 10 / span 6; grid-row: 10 / span 6; }
 
 .house .box {
     width: 100%;
     height: 100%;
-    background-color: white;
-    border-radius: 15px;
+    background: white;
+    border-radius: 12px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: 12px;
-    padding: 12px;
-    box-sizing: border-box;
+    gap: 8px;
+    padding: 8px;
 }
 
 .pocket {
     border-radius: 50%;
-    border: 1px solid #000;
-}
-.red-bg { background-color: #f6251b; }
-.blue-bg { background-color: #008eff; }
-.green-bg { background-color: #00be00; }
-.yellow-bg { background-color: #ffb300; }
-
-.top-track, .bottom-track {
-    grid-column: span 3;
-    grid-row: span 6;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(6, 1fr);
+    border: 2px solid #333;
+    background-color: inherit;
 }
 
-.left-track, .right-track {
-    grid-column: span 6;
-    grid-row: span 3;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-}
-
+/* Cells */
 .cell {
-    border: 1px solid #000;
-    box-sizing: border-box;
-    background-color: #fff;
+    border: 1px solid #333;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 18px;
     font-weight: bold;
-}
-
-/* रङ्गीन बाटाहरू */
-.red-path { background-color: #f6251b; }
-.blue-path { background-color: #008eff; }
-.green-path { background-color: #00be00; }
-.yellow-path { background-color: #ffb300; }
-
-/* स्टार कोठाहरूको आफ्नै रङ (तपाईंले भन्नुभए जस्तै मिलाइएको) */
-.red-start-cell { background-color: #f6251b; }
-.blue-start-cell { background-color: #008eff; }
-.green-start-cell { background-color: #00be00; }
-.yellow-start-cell { background-color: #ffb300; }
-
-/* स्टार फन्ट स्टाइल */
-.black-star { color: #000000; font-size: 20px; }
-.white-star { color: #ffffff; font-size: 20px; -webkit-text-stroke: 1px black; }
-.safe-zone { background-color: #ffffff; }
-
-/* बीचको त्रिकोण */
-.center-home {
-    grid-column: span 3;
-    grid-row: span 3;
+    background: #fff;
     position: relative;
-    background-color: #fff;
-    border: 1px solid #000;
-    box-sizing: border-box;
 }
 
-.triangle {
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-style: solid;
+/* Path Colors */
+.red-path   { background-color: #f6251b !important; color: white; }
+.blue-path  { background-color: #008eff !important; color: white; }
+.green-path { background-color: #00be00 !important; color: white; }
+.yellow-path{ background-color: #ffb300 !important; color: black; }
+
+.safe-zone { background-color: #fff !important; }
+.black-star { color: #000; font-size: 22px; }
+.white-star { color: #fff; font-size: 22px; -webkit-text-stroke: 1px #000; }
+
+/* Center */
+.center-home {
+    grid-column: 7 / span 3;
+    grid-row: 7 / span 3;
+    position: relative;
+    background: #fff;
+    border: 2px solid #000;
 }
 
-.red-triangle {
-    top: 0; left: 0;
-    border-width: 35px 0 35px 35px;
-    border-color: transparent transparent transparent #f6251b;
+/* Dice */
+#dice {
+    font-size: 60px;
+    margin: 15px 0;
+    cursor: pointer;
+    transition: transform 0.3s;
 }
-.blue-triangle {
-    top: 0; left: 0;
-    border-width: 0 35px 35px 35px;
-    border-color: #008eff transparent transparent transparent;
-}
-.green-triangle {
-    bottom: 0; left: 0;
-    border-width: 35px 35px 0 35px;
-    border-color: transparent transparent #00be00 transparent;
-}
-.yellow-triangle {
-    top: 0; right: 0;
-    border-width: 35px 35px 35px 0;
-    border-color: transparent #ffb300 transparent transparent;
+
+#dice:active {
+    transform: scale(0.9);
 }
