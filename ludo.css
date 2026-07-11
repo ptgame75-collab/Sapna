@@ -47,7 +47,6 @@ body {
     padding: 10px;
 }
 
-/* मुख्य बोर्ड */
 .ludo-board {
     display: grid;
     grid-template-columns: repeat(15, 1fr);
@@ -64,7 +63,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 12px;
+    padding: 15px;
     box-sizing: border-box;
 }
 
@@ -95,15 +94,12 @@ body {
 .green-bg { background-color: #00be00; }
 .yellow-bg { background-color: #ffb300; }
 
-/* ट्र्याकहरूको लेआउट फिक्स (यसले गर्दा अब बग्दैन) */
 .top-track, .bottom-track {
     grid-column: span 3;
     grid-row: span 6;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(6, 1fr);
-    height: 100%;
-    width: 100%;
 }
 
 .left-track, .right-track {
@@ -112,11 +108,8 @@ body {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    height: 100%;
-    width: 100%;
 }
 
-/* प्रत्येक कोठाको निश्चित साइज */
 .cell {
     border: 1px solid #000;
     box-sizing: border-box;
@@ -124,18 +117,26 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
 }
 
+/* रङ्गीन बाटाहरू */
 .red-path { background-color: #f6251b; }
 .blue-path { background-color: #008eff; }
 .green-path { background-color: #00be00; }
 .yellow-path { background-color: #ffb300; }
 
-/* स्टारको रङ */
-.black-star { color: #000000; }
-.white-star { color: #ffffff; -webkit-text-stroke: 1px black; }
+/* स्टार कोठाहरूको आफ्नै रङ (तपाईंले भन्नुभए जस्तै मिलाइएको) */
+.red-start-cell { background-color: #f6251b; }
+.blue-start-cell { background-color: #008eff; }
+.green-start-cell { background-color: #00be00; }
+.yellow-start-cell { background-color: #ffb300; }
+
+/* स्टार फन्ट स्टाइल */
+.black-star { color: #000000; font-size: 20px; }
+.white-star { color: #ffffff; font-size: 20px; -webkit-text-stroke: 1px black; }
+.safe-zone { background-color: #ffffff; }
 
 /* बीचको त्रिकोण */
 .center-home {
