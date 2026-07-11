@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ne">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,22 +11,21 @@
     <meta http-equiv="refresh" content="0; url=home.html">
     
     <script>
-        // ब्याकअप रिडाइरेक्ट लजिक
         window.location.href = "home.html";
-
-        // Service Worker रजिस्टर गर्ने (इन्स्टल गराउनका लागि)
+        
+        // Service Worker
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js')
-                .then(reg => console.log('Service Worker Registered!'))
-                .catch(err => console.log('Service Worker Failed!', err));
+                .then(() => console.log('Service Worker Registered'))
+                .catch(err => console.log('Service Worker Error:', err));
             });
         }
     </script>
 </head>
-<body style="background-color: #0c1a40; display: flex; justify-content: center; align-items: center; height: 100vh;">
-    <div style="text-align: center; font-family: Arial, sans-serif; color: white;">
-        <p>Loading Game...</p>
+<body style="background-color: #0c1a40; margin:0; height:100vh; display:flex; justify-content:center; align-items:center; color:white; font-family:Arial;">
+    <div style="text-align:center;">
+        <h2>Loading Ludo Game...</h2>
     </div>
 </body>
 </html>
