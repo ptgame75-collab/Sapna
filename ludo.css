@@ -16,7 +16,7 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    border: 2px solid #333;
+    border: 3px solid #222;
     border-radius: 40px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -47,12 +47,13 @@ body {
     padding: 10px;
 }
 
+/* बोर्डको साइजलाई पूर्ण वर्गाकार पारियो */
 .ludo-board {
     display: grid;
     grid-template-columns: repeat(15, 1fr);
     grid-template-rows: repeat(15, 1fr);
-    width: 355px;
-    height: 355px;
+    width: 360px;
+    height: 360px;
     background-color: #fff;
     border: 3px solid #222;
 }
@@ -80,8 +81,8 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: 8px;
-    padding: 8px;
+    gap: 12px;
+    padding: 12px;
     box-sizing: border-box;
 }
 
@@ -94,6 +95,7 @@ body {
 .blue-bg { background-color: #2e64ff; }
 .green-bg { background-color: #2ecc71; }
 
+/* ट्र्याकहरूको ६x३ ग्रिडलाई स्थिर र बराबर बनाइयो */
 .top-track, .bottom-track {
     grid-column: span 3;
     grid-row: span 6;
@@ -117,7 +119,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: bold;
 }
 
@@ -126,12 +128,20 @@ body {
 .blue-path { background-color: #2e64ff; }
 .green-path { background-color: #2ecc71; }
 
+/* सुरु हुने र सुरक्षित स्टार कोठाहरूको रङ */
 .red-start { background-color: #ff7675; color: white; }
 .yellow-start { background-color: #ffeaa7; color: #333; }
 .blue-start { background-color: #74b9ff; color: white; }
 .green-start { background-color: #55efc4; color: white; }
-.safe-zone { background-color: #dfe6e9; color: #2d3436; }
 
+/* स्टार बस्ने कोठाको साझा स्टाइल */
+.safe-zone {
+    background-color: #dfe6e9;
+    color: #2d3436;
+    font-size: 16px;
+}
+
+/* बीचको त्रिकोणात्मक घरको सही ४५ डिग्री डिजाइन */
 .center-home {
     grid-column: span 3;
     grid-row: span 3;
