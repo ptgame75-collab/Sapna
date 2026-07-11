@@ -4,12 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ludo Game - Home</title>
-    
-    <!-- PWA Manifest लाई पनि यहाँ लिङ्क गरिदिउँ ताकि होमपेजबाटै एप चिनियोस् -->
     <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#0b194d">
-
-    <!-- नयाँ पाथ: यसले सर्भरलाई सिधै यही फोल्डरको style.css तान्न सजिलो बनाउँछ -->
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -26,10 +22,40 @@
         </div>
         <div class="content">
             <p class="game-mode">GAME MODE<br>(BATTLE)</p>
-            <!-- यहाँ पनि लिंकको पाथ स्पष्ट पारिएको छ -->
-            <a href="./ludo.html" class="btn-link"><button class="btn">1V1</button></a>
-            <a href="./ludo.html" class="btn-link"><button class="btn">4 PLAYER</button></a>
+            <button class="btn" onclick="openColorModal('1v1')">1V1</button>
+            <button class="btn" onclick="openColorModal('4player')">4 PLAYER</button>
+        </div>
+
+        <div id="colorModal" class="modal-overlay">
+            <div class="modal-box">
+                <h2>CHOOSE YOUR COLOR</h2>
+                <div class="color-options">
+                    <div class="color-circle red" onclick="selectColor('red')"></div>
+                    <div class="color-circle blue" onclick="selectColor('blue')"></div>
+                    <div class="color-circle green" onclick="selectColor('green')"></div>
+                    <div class="color-circle yellow" onclick="selectColor('yellow')"></div>
+                </div>
+                <button class="close-btn" onclick="closeColorModal()">CLOSE</button>
+            </div>
         </div>
     </div>
+
+    <script>
+        let selectedMode = '';
+
+        function openColorModal(mode) {
+            selectedMode = mode;
+            document.getElementById('colorModal').style.display = 'flex';
+        }
+
+        function closeColorModal() {
+            document.getElementById('colorModal').style.display = 'none';
+        }
+
+        function selectColor(color) {
+            // छानेको रङ र मोडलाई अर्को पेज (ludo.html) मा पठाउन युआरएल (URL) मा जोडिएको छ
+            window.location.href = `./ludo.html?mode=${selectedMode}&color=${color}`;
+        }
+    </script>
 </body>
 </html>
