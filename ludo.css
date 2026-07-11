@@ -47,7 +47,6 @@ body {
     padding: 10px;
 }
 
-/* बोर्डको साइजलाई पूर्ण वर्गाकार पारियो */
 .ludo-board {
     display: grid;
     grid-template-columns: repeat(15, 1fr);
@@ -55,7 +54,7 @@ body {
     width: 360px;
     height: 360px;
     background-color: #fff;
-    border: 3px solid #222;
+    border: 3px solid #000;
 }
 
 .house {
@@ -64,38 +63,38 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 15px;
     box-sizing: border-box;
 }
 
-.red-house { background-color: #ff4d4d; }
-.yellow-house { background-color: #ffde22; }
-.blue-house { background-color: #2e64ff; }
-.green-house { background-color: #2ecc71; }
+/* नयाँ उज्यालो रङहरू */
+.red-house { background-color: #f6251b; }
+.blue-house { background-color: #008eff; }
+.green-house { background-color: #00be00; }
+.yellow-house { background-color: #ffb300; }
 
 .house .box {
     width: 100%;
     height: 100%;
     background-color: white;
-    border-radius: 12px;
+    border-radius: 20px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: 12px;
-    padding: 12px;
+    gap: 15px;
+    padding: 15px;
     box-sizing: border-box;
 }
 
 .pocket {
     border-radius: 50%;
-    border: 2px solid #333;
+    border: 1px solid #000;
 }
-.red-bg { background-color: #ff4d4d; }
-.yellow-bg { background-color: #ffde22; }
-.blue-bg { background-color: #2e64ff; }
-.green-bg { background-color: #2ecc71; }
+.red-bg { background-color: #f6251b; }
+.blue-bg { background-color: #008eff; }
+.green-bg { background-color: #00be00; }
+.yellow-bg { background-color: #ffb300; }
 
-/* ट्र्याकहरूको ६x३ ग्रिडलाई स्थिर र बराबर बनाइयो */
 .top-track, .bottom-track {
     grid-column: span 3;
     grid-row: span 6;
@@ -113,41 +112,33 @@ body {
 }
 
 .cell {
-    border: 1px solid #444;
+    border: 1px solid #111;
     box-sizing: border-box;
     background-color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
 }
 
-.red-path { background-color: #ff4d4d; }
-.yellow-path { background-color: #ffde22; }
-.blue-path { background-color: #2e64ff; }
-.green-path { background-color: #2ecc71; }
+/* ट्र्याकका रङहरू */
+.red-path { background-color: #f6251b; }
+.blue-path { background-color: #008eff; }
+.green-path { background-color: #00be00; }
+.yellow-path { background-color: #ffb300; }
 
-/* सुरु हुने र सुरक्षित स्टार कोठाहरूको रङ */
-.red-start { background-color: #ff7675; color: white; }
-.yellow-start { background-color: #ffeaa7; color: #333; }
-.blue-start { background-color: #74b9ff; color: white; }
-.green-start { background-color: #55efc4; color: white; }
+/* स्टार डिजाइन (इमेज अनुसार कालो र सेतो बोर्डर भएको) */
+.black-star { color: #000000; font-size: 22px; }
+.white-star { color: #ffffff; font-size: 22px; -webkit-text-stroke: 1.5px black; }
 
-/* स्टार बस्ने कोठाको साझा स्टाइल */
-.safe-zone {
-    background-color: #dfe6e9;
-    color: #2d3436;
-    font-size: 16px;
-}
-
-/* बीचको त्रिकोणात्मक घरको सही ४५ डिग्री डिजाइन */
+/* बीचको त्रिकोणात्मक घरको नयाँ रङ पोजिसन */
 .center-home {
     grid-column: span 3;
     grid-row: span 3;
     position: relative;
     background-color: #fff;
-    border: 1px solid #222;
+    border: 1px solid #000;
     box-sizing: border-box;
 }
 
@@ -161,20 +152,20 @@ body {
 .red-triangle {
     top: 0; left: 0;
     border-width: 35px 0 35px 35px;
-    border-color: transparent transparent transparent #ff4d4d;
-}
-.yellow-triangle {
-    top: 0; left: 0;
-    border-width: 0 35px 35px 35px;
-    border-color: #ffde22 transparent transparent transparent;
-}
-.green-triangle {
-    top: 0; right: 0;
-    border-width: 35px 35px 35px 0;
-    border-color: transparent #2ecc71 transparent transparent;
+    border-color: transparent transparent transparent #f6251b;
 }
 .blue-triangle {
+    top: 0; left: 0;
+    border-width: 0 35px 35px 35px;
+    border-color: #008eff transparent transparent transparent;
+}
+.green-triangle {
     bottom: 0; left: 0;
     border-width: 35px 35px 0 35px;
-    border-color: transparent transparent #2e64ff transparent;
+    border-color: transparent transparent #00be00 transparent;
+}
+.yellow-triangle {
+    top: 0; right: 0;
+    border-width: 35px 35px 35px 0;
+    border-color: transparent #ffb300 transparent transparent;
 }
