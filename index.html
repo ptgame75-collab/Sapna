@@ -2,30 +2,152 @@
 <html lang="ne">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ludo Game</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>अधिराजको खत</title>
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#0b194d">
     
-    <meta http-equiv="refresh" content="0; url=home.html">
-    
-    <script>
-        window.location.href = "home.html";
+    <!-- iOS support -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="अधिराजको खत">
+    <link rel="apple-touch-icon" href="a.0063.jpg">
+
+    <style>
+        * { box-sizing: border-box; }
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; overflow: hidden; font-family: 'Georgia', serif; }
         
-        // Service Worker
+        #bgPhoto { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: url('a.0063.jpg') no-repeat center center; 
+            background-size: cover; 
+            filter: brightness(0.4) blur(2px); 
+            opacity: 0; 
+            animation: fadeInBg 2s forwards; 
+        }
+
+        @keyframes fadeInBg { to { opacity: 1; } }
+
+        #introContainer { 
+            position: relative; 
+            height: 100%; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            z-index: 10; 
+            padding: 20px; 
+            text-align: center; 
+        }
+
+        .typing-text { 
+            color: #fff; 
+            font-size: 24px; 
+            font-weight: bold; 
+            letter-spacing: 2px; 
+            min-height: 1.5em; 
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5); 
+            display: inline-block;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 24px;
+            background-color: #d32f2f;
+            margin-left: 4px;
+            vertical-align: middle;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .progress-bar { 
+            width: 70%; 
+            max-width: 250px; 
+            height: 3px; 
+            background: rgba(255,255,255,0.2); 
+            border-radius: 10px; 
+            margin-top: 30px; 
+            overflow: hidden; 
+        }
+
+        .progress-fill { 
+            width: 0%; 
+            height: 100%; 
+            background: #d32f2f; 
+            transition: width 3.5s linear; 
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div id="bgPhoto"></div>
+
+    <div id="introContainer">
+        <div>
+            <span id="typewriter" class="typing-text"></span><span id="cursor" class="cursor"></span>
+        </div>
+        <div class="progress-bar">
+            <div id="pFill" class="progress-fill"></div>
+        </div>
+    </div>
+
+    <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js')
-                .then(() => console.log('Service Worker Registered'))
-                .catch(err => console.log('Service Worker Error:', err));
+                navigator.serviceWorker.getRegistrations().then(regs => {
+                    let unregisterPromises = regs.map(reg => reg.unregister());
+                    return Promise.all(unregisterPromises);
+                }).then(() => {
+                    return navigator.serviceWorker.register('sw.js');
+                }).then(() => console.log('SW Registered'))
+                .catch(err => console.log('SW Registration process error:', err));
             });
         }
+
+        const text = "अधुरा शब्दहरूको दस्ताबेज";
+        const typewriterElement = document.getElementById('typewriter');
+        const cursorElement = document.getElementById('cursor');
+        const fill = document.getElementById('pFill');
+        let index = 0;
+
+        function typeWriter() {
+            if (index < text.length) {
+                typewriterElement.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 120);
+            } else {
+                cursorElement.style.display = 'none';
+            }
+        }
+
+        window.onload = () => {
+            if (sessionStorage.getItem('appLoaded')) {
+                window.location.replace("home.html");
+                return;
+            }
+            sessionStorage.setItem('appLoaded', 'true');
+
+            setTimeout(() => {
+                typeWriter();
+                fill.style.width = '100%';
+            }, 500);
+
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 1s ease';
+                document.body.style.opacity = '0';
+                setTimeout(() => {
+                    window.location.replace("home.html");
+                }, 1000);
+            }, 4500);
+        };
     </script>
-</head>
-<body style="background-color: #0c1a40; margin:0; height:100vh; display:flex; justify-content:center; align-items:center; color:white; font-family:Arial;">
-    <div style="text-align:center;">
-        <h2>Loading Ludo Game...</h2>
-    </div>
 </body>
 </html>
