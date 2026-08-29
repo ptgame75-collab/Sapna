@@ -1,17 +1,21 @@
 {
-  "short_name": "Ludo Game",
-  "name": "Ludo Game - Battle Mode",
+  "name": "अधिराजको खत",
+  "short_name": "अधिराजको खत",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#fcfbf7",
+  "theme_color": "#d32f2f",
   "icons": [
     {
-      "src": "https://cdn-icons-png.freepik.com/512/8112/8112526.png",
+      "src": "app-logo.png",
+      "sizes": "192x192",
       "type": "image/png",
-      "sizes": "512x512",
       "purpose": "any maskable"
+    },
+    {
+      "src": "app-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
-  ],
-  "start_url": "./index.html",
-  "background_color": "#0c1a40",
-  "theme_color": "#0b194d",
-  "display": "standalone",
-  "orientation": "portrait"
+  ]
 }
