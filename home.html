@@ -1,60 +1,188 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ne">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ludo Game - Home</title>
-    <link rel="manifest" href="./manifest.json">
-    <meta name="theme-color" content="#0b194d">
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-    <div class="main-container">
-        <div class="top-bar">
-            <span>13:23</span>
-            <div class="icons">
-                <span>📶</span><span>🔋</span>
-            </div>
-        </div>
-        <div class="title-bar">
-            <h1>LUDO GAME</h1>
-            <div class="right-icon">⬡</div>
-        </div>
-        <div class="content">
-            <p class="game-mode">GAME MODE<br>(BATTLE)</p>
-            <button class="btn" onclick="openColorModal('1v1')">1V1</button>
-            <button class="btn" onclick="openColorModal('4player')">4 PLAYER</button>
-        </div>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>अधिराजको खत</title>
 
-        <div id="colorModal" class="modal-overlay">
-            <div class="modal-box">
-                <h2>CHOOSE YOUR COLOR</h2>
-                <div class="color-options">
-                    <div class="color-circle red" onclick="selectColor('red')"></div>
-                    <div class="color-circle blue" onclick="selectColor('blue')"></div>
-                    <div class="color-circle green" onclick="selectColor('green')"></div>
-                    <div class="color-circle yellow" onclick="selectColor('yellow')"></div>
-                </div>
-                <button class="close-btn" onclick="closeColorModal()">CLOSE</button>
-            </div>
-        </div>
+    <!-- Manifest setup -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Mobile App Home Screen Icon (एपको बाहिर देखिने नयाँ लोगो) -->
+    <link rel="icon" type="image/png" sizes="192x192" href="app-logo.png">
+    <link rel="apple-touch-icon" href="app-logo.png">
+
+    <style>
+        body { 
+            background: #fcfbf7; 
+            font-family: 'Georgia', serif; 
+            margin: 0; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            min-height: 100vh; 
+            -webkit-user-select: none; 
+            user-select: none; 
+            animation: fadeInPage 0.8s ease-in; 
+        }
+
+        @keyframes fadeInPage {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Header लाई Sticky बनाउन थपिएको CSS */
+        .header { 
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #fcfbf7;
+            width: 100%;
+            padding-top: 20px;
+            padding-bottom: 15px;
+            text-align: center; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03); /* Scroll गर्दा हल्का छाया देखिन */
+        }
+        
+        .header img { 
+            width: 120px; 
+            height: 120px; 
+            border-radius: 50%; 
+            border: 3px solid #fff; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+            object-fit: cover; 
+        }
+        
+        .header h1 { 
+            color: #4a3728; 
+            font-size: 24px; 
+            margin-top: 10px; 
+            margin-bottom: 0;
+            font-weight: bold; 
+        }
+
+        .main-content { 
+            width: 90%; 
+            max-width: 400px; 
+            margin-top: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 15px; 
+        }
+        
+        .diary-card { 
+            position: relative;
+            background: white; 
+            padding: 15px 10px; 
+            border-radius: 10px; 
+            text-decoration: none; 
+            display: block; 
+            border-left: 4px solid #d32f2f; 
+            box-shadow: 0 5px 12px rgba(0,0,0,0.05); 
+            text-align: center; 
+            transition: 0.2s; 
+        }
+        .diary-card:active { transform: scale(0.98); }
+        .diary-card h2 { color: #2c3e50; font-size: 16px; margin: 0; } 
+        .diary-card p { color: #d32f2f; font-size: 11px; margin-top: 5px; font-weight: bold; }
+
+        /* भिडियो र फोटो बटनको लागि छुट्टै बोर्डर कलर */
+        .video-btn {
+            border-left: 4px solid #4a3728;
+        }
+        .video-btn p {
+            color: #4a3728;
+        }
+
+        /* Update / NEW Badge को CSS */
+        .update-badge {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background-color: #e74c3c;
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(231, 76, 60, 0.4);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .footer { margin-top: auto; padding: 30px; color: #999; font-size: 12px; text-align: center; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="header">
+        <!-- एप भित्र देखिने प्रोफाइल फोटो (4870.png) -->
+        <img src="4870.png" alt="Logo">
+        <h1>मनको भावना</h1>
     </div>
 
+    <div class="main-content">
+        <a href="anusthan.html" class="diary-card">
+            <h2>169 अनुष्ठान लेख</h2>
+            <p>Tap here to read.</p>
+        </a>
+        
+        <a href="youy.html" class="diary-card">
+            <h2>photo folder</h2>
+            <p>YouTube thumbnail.</p>
+        </a>
+
+        <a href="adhura.html" class="diary-card">
+            <h2>मेरो अधुरा शब्दहरू</h2>
+            <p>Tap here to read.</p>
+        </a>
+
+        <!-- Sorry Suzu Folders with One-Time Badge -->
+        <a href="yui.html" class="diary-card" id="suzu-folder" onclick="markSuzuSeen()">
+            <span class="update-badge" id="suzu-badge" style="display: none;">NEW</span>
+            <h2>folder</h2>
+            <p>Sorry Suzu.</p>
+        </a>
+
+        <a href="bayan.html" class="diary-card">
+            <h2>तिम्रो बयान</h2>
+            <p>Tap here to read.</p>
+        </a>
+        
+        <a href="birthday.html" class="diary-card">
+            <h2>Happy Birthday</h2>
+            <p>Tap here to read.</p>
+        </a>
+
+        <a href="photo.html" class="diary-card video-btn">
+            <h2>fav pic</h2>
+            <p>Tap here to view.</p>
+        </a>
+
+        <a href="video.html" class="diary-card video-btn">
+            <h2> video section </h2>
+            <p>Tap here to view.</p>
+        </a>
+    </div> 
+
+    <div class="footer">2026 अधिराज | सुजना श्रेष्ठको लागि</div>
+
     <script>
-        let selectedMode = '';
+        // LocalStorage चेक गर्ने र One-Time Badge नियन्त्रण गर्ने JavaScript
+        document.addEventListener("DOMContentLoaded", function () {
+            const isSeen = localStorage.getItem("suzu_folder_seen");
+            if (!isSeen) {
+                document.getElementById("suzu-badge").style.display = "inline-block";
+            }
+        });
 
-        function openColorModal(mode) {
-            selectedMode = mode;
-            document.getElementById('colorModal').style.display = 'flex';
-        }
-
-        function closeColorModal() {
-            document.getElementById('colorModal').style.display = 'none';
-        }
-
-        function selectColor(color) {
-            // छानेको रङ र मोडलाई अर्को पेज (ludo.html) मा पठाउन युआरएल (URL) मा जोडिएको छ
-            window.location.href = `./ludo.html?mode=${selectedMode}&color=${color}`;
+        function markSuzuSeen() {
+            localStorage.setItem("suzu_folder_seen", "true");
         }
     </script>
 </body>
